@@ -14,11 +14,20 @@
       <h1>Sorting Visualizer</h1>
 
       <ul data-js="sort-types">
-        <li>Bubble Sort</li>
+        <li class="select">Bubble Sort</li>
+        <li>Heap Sort</li>
+        <li>Merge Sort</li>
+        <li>Quick Sort</li>
       </ul>
 
       <ul data-js="sort-options">
-        <li>Speed</li>
+        <li>Speed: <input type="range" min="1" max="100" value="50"></li>
+        <li>Array size: <input type="range" min="1" max="100" value="50"></li>
+      </ul>
+
+      <ul data-js="generate">
+        <li>Generate new array</li>
+        <li>Sort :)</li>
       </ul>
     </header>
     <section data-js="visualizer">

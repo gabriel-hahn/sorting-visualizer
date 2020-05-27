@@ -1,6 +1,38 @@
 .header {
-  height: 10vh;
-  min-height: 70px;
+  height: 8vh;
+  min-height: 65px;
   background: var(--color-grey-thirdy);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.header ul {
+  height: 100%;
+  display: flex;
+}
+
+.header li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.7rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.header li input {
+  margin-left: 1rem;
+  width: 80px;
+}
+
+.header li:hover {
+  background: var(--color-grey-dark);
+}
+
+.header li.select {
+  border-bottom: 2px solid var(--color-green-primary);
 }
