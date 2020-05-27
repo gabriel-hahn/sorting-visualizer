@@ -13,7 +13,10 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
+    "no-continue": "off",
+    "no-param-reassign": "off",
     "consistent-return": "off",
+    "class-methods-use-this": "off",
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
   },
 };

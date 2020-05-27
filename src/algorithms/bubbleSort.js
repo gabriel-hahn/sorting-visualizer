@@ -9,22 +9,22 @@ const bubbleSort = (arr, speed = 200, animationCb, sortedCb) => {
   }
 
   let round = 1;
+  let visualizationDelay = 1;
   let sorted = false;
   const itemsArr = [...arr];
   const arrSize = itemsArr.length;
 
   while (!sorted) {
-    sorted = true;
+    const loopSize = (arrSize - round);
 
-    for (let i = 0; i < arrSize; i++) {
+    sorted = true;
+    round += 1;
+
+    for (let i = 0; i < loopSize; i++) {
       const current = itemsArr[i];
       const nextItem = itemsArr[i + 1];
 
-      round += 1;
-
-      setTimeout((currentArr) => {
-        animationCb(i, currentArr);
-      }, speed * round, [...itemsArr]);
+      visualizationDelay += 1;
 
       if (!nextItem && nextItem !== 0) {
         break;
@@ -37,13 +37,23 @@ const bubbleSort = (arr, speed = 200, animationCb, sortedCb) => {
         itemsArr[i + 1] = temp;
 
         sorted = false;
+
+        setTimeout((currentArr) => {
+          animationCb(i, i + 1, currentArr);
+        }, speed * visualizationDelay, [...itemsArr]);
+
+        continue;
       }
+
+      setTimeout((currentArr) => {
+        animationCb(i, i + 1, currentArr);
+      }, speed * visualizationDelay, [...itemsArr]);
     }
   }
 
-  setTimeout((currentArr) => {
-    sortedCb(currentArr);
-  }, speed * round, itemsArr);
+  setTimeout(() => {
+    sortedCb();
+  }, speed * visualizationDelay);
 };
 
 export default bubbleSort;
