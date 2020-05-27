@@ -14,14 +14,14 @@
       <h1>Sorting Visualizer</h1>
 
       <ul data-js="sort-types">
-        <li class="select">Bubble Sort</li>
-        <li>Heap Sort</li>
-        <li>Merge Sort</li>
-        <li>Quick Sort</li>
+        <li class="select" data-js="bubble">Bubble Sort</li>
+        <li data-js="heap">Heap Sort</li>
+        <li data-js="merge">Merge Sort</li>
+        <li data-js="quick">Quick Sort</li>
       </ul>
 
       <ul data-js="sort-options">
-        <li>Speed: <input type="range" min="1" max="100" value="50"></li>
+        <li>Speed: <input type="range" min="1" max="500" value="250"></li>
         <li>Array size: <input type="range" min="1" max="100" value="50"></li>
       </ul>
 
@@ -31,7 +31,7 @@
       </ul>
     </header>
     <section data-js="visualizer" class="visualizer-container">
-      <div data-js="list" class="list-container">
+      <div data-js="list-container" class="list-container">
         <div></div>
         <div></div>
         <div></div>
@@ -46,6 +46,7 @@
       </div>
     </section>
   </div>
+
   <script src="./dist/bundle.js"></script>
 </body>
 </html>
