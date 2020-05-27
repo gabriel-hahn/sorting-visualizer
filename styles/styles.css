@@ -1,0 +1,6 @@
+.header {
+  height: 10vh;
+  min-height: 70px;
+  background: var(--color-grey-thirdy);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}

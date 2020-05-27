@@ -3,10 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./styles/global.css">
+  <link rel="stylesheet" href="./styles/styles.css">
   <title>Sorting Visualizer</title>
 </head>
 <body>
+  <div class="container">
+    <header data-js="header" class="header">
+      <h1>Sorting Visualizer</h1>
 
+      <ul data-js="sort-types">
+        <li>Bubble Sort</li>
+      </ul>
+
+      <ul data-js="sort-options">
+        <li>Speed</li>
+      </ul>
+    </header>
+    <section data-js="visualizer">
+      <ul data-js="list">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
+  </div>
   <script src="./dist/bundle.js"></script>
 </body>
 </html>
