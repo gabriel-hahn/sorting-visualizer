@@ -43,13 +43,13 @@
 
 .list-container {
   display: flex;
+  align-items: flex-end;
   height: 60vh;
 }
 
 .list-container div {
-  margin: 0 3px;
-  width: 0.3vw;
-  height: 100%;
+  margin: 0 4px;
+  width: 0.4vw;
   background: var(--color-white);
 }
 
