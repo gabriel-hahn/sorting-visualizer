@@ -13,18 +13,22 @@ class SortController {
   }
 
   initEvents() {
-    this.arraySizeEl.addEventListener('change', (event) => {
-      console.log('Size changed: ', event.target.value);
+    this.arraySizeEl.addEventListener('input', (event) => {
+      this.arraySize = event.target.value;
+
+      this.initItemsList();
     });
 
-    this.sortSpeedEl.addEventListener('change', (event) => {
-      console.log('Speed changed: ', event.target.value);
+    this.sortSpeedEl.addEventListener('input', (event) => {
+      this.speed = event.target.value;
     });
 
     this.initItemsList();
   }
 
   initItemsList() {
+    this.itemsContainerEl.innerHTML = '';
+
     for (let i = 1; i <= this.arraySize; i++) {
       const divEl = document.createElement('div');
       const height = Math.random() * 100;
