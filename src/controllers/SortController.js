@@ -1,5 +1,6 @@
 import bubbleSort from '../algorithms/bubbleSort';
 import heapSort from '../algorithms/heapSort';
+import quickSort from '../algorithms/quickSort';
 
 class SortController {
   constructor() {
@@ -70,6 +71,7 @@ class SortController {
       case 'merge':
         break;
       case 'quick':
+        quickSort(this.sizesArr, this.speed, this.update, this.finished);
         break;
       default:
         bubbleSort(this.sizesArr, this.speed, this.update, this.finished);
