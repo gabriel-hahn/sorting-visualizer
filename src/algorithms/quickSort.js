@@ -5,16 +5,31 @@
  * the sort operations on those divided smaller parts.
  *
  */
-const partitionHandler = (arr, right, left) => {
+let visualizationDelay = 1;
+let speedValue = 200;
+
+const partitionHandler = (arr, right, left, animationCb) => {
   const pivot = arr[Math.floor((right + left) / 2)];
 
   while (left <= right) {
     while (arr[left] < pivot) {
       left += 1;
+
+      visualizationDelay += 1;
+
+      setTimeout((currentArr, leftViz, rightViz, pivotViz) => {
+        animationCb(leftViz, rightViz, currentArr, pivotViz);
+      }, speedValue * visualizationDelay, [...arr], left, right, pivot);
     }
 
     while (arr[right] > pivot) {
       right -= 1;
+
+      visualizationDelay += 1;
+
+      setTimeout((currentArr, leftViz, rightViz, pivotViz) => {
+        animationCb(leftViz, rightViz, currentArr, pivotViz);
+      }, speedValue * visualizationDelay, [...arr], left, right, pivot);
     }
 
     if (left <= right) {
@@ -22,21 +37,27 @@ const partitionHandler = (arr, right, left) => {
 
       left += 1;
       right -= 1;
+
+      visualizationDelay += 1;
+
+      setTimeout((currentArr, leftViz, rightViz) => {
+        animationCb(leftViz, rightViz, currentArr);
+      }, speedValue * visualizationDelay, [...arr], left, right);
     }
   }
 
   return left;
 };
 
-const quickSortHandler = (arr, left, right) => {
-  const indexPartLeft = partitionHandler(arr, right, left);
+const quickSortHandler = (arr, left, right, animationCb) => {
+  const indexPartLeft = partitionHandler(arr, right, left, animationCb);
 
   if (left < indexPartLeft - 1) {
-    quickSortHandler(arr, left, indexPartLeft - 1);
+    quickSortHandler(arr, left, indexPartLeft - 1, animationCb);
   }
 
   if (indexPartLeft < right) {
-    quickSortHandler(arr, indexPartLeft, right);
+    quickSortHandler(arr, indexPartLeft, right, animationCb);
   }
 
   return arr;
@@ -47,12 +68,16 @@ const quickSort = (arr, speed = 200, animationCb, sortedCb) => {
     return;
   }
 
+  speedValue = speed;
+
   const right = arr.length - 1;
   const left = 0;
 
-  quickSortHandler(arr, left, right);
+  quickSortHandler(arr, left, right, animationCb);
 
-  console.log('Sorted');
+  setTimeout(() => {
+    sortedCb();
+  }, speedValue * visualizationDelay);
 };
 
 export default quickSort;
