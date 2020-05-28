@@ -7,6 +7,7 @@ class SortController {
     this.sortSpeedEl = document.querySelector('[data-js="sort-options-speed"]');
     this.sortTypesEl = document.querySelector('[data-js="sort-types"]');
     this.btnSortEl = document.querySelector('[data-js="btn-sort"]');
+    this.btnNewArrayEl = document.querySelector('[data-js="btn-new-array"]');
 
     this.arraySize = 50;
     this.speed = 100;
@@ -30,6 +31,10 @@ class SortController {
 
     this.btnSortEl.addEventListener('click', () => {
       this.handleSortVisualization();
+    });
+
+    this.btnNewArrayEl.addEventListener('click', () => {
+      this.initItemsList();
     });
 
     this.initItemsList();
