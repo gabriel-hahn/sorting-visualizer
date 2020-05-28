@@ -58,9 +58,9 @@ const heapSort = (arr, speed = 200, animationCb, sortedCb) => {
   while (lastElementArr >= 0) {
     visualizationDelay += 1;
 
-    setTimeout((currentArr) => {
-      animationCb(0, lastElementArr, currentArr);
-    }, speedValue * visualizationDelay, [...itemsArr]);
+    setTimeout((currentArr, lastElement) => {
+      animationCb(0, lastElement, currentArr);
+    }, speedValue * visualizationDelay, [...itemsArr], lastElementArr);
 
     if (lastElementArr === 0) {
       setTimeout(() => {
