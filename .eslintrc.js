@@ -14,6 +14,7 @@ module.exports = {
   },
   rules: {
     "no-continue": "off",
+    "no-loop-func": "off",
     "no-param-reassign": "off",
     "consistent-return": "off",
     "class-methods-use-this": "off",

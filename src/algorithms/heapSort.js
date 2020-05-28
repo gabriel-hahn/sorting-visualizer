@@ -6,10 +6,19 @@
  * that the parent is bigger than the childs in fact.
  *
  */
-const heapify = (arr, length, i) => {
+let visualizationDelay = 1;
+let speedValue = 200;
+
+const heapify = (arr, length, i, animationCb) => {
   let largest = i;
   const left = 2 * i + 1;
   const right = left + 1;
+
+  visualizationDelay += 1;
+
+  setTimeout((currentArr) => {
+    animationCb(left, right, currentArr, largest);
+  }, speedValue * visualizationDelay, [...arr]);
 
   if (left < length && arr[left] > arr[largest]) {
     largest = left;
@@ -22,7 +31,7 @@ const heapify = (arr, length, i) => {
   if (largest !== i) {
     [arr[i], arr[largest]] = [arr[largest], arr[i]];
 
-    heapify(arr, length, largest);
+    heapify(arr, length, largest, animationCb);
   }
 
   return arr;
@@ -33,25 +42,36 @@ const heapSort = (arr, speed = 200, animationCb, sortedCb) => {
     return;
   }
 
+  speedValue = speed;
+
   const itemsArr = [...arr];
   const arrSize = itemsArr.length;
 
-  let visualizationDelay = 1;
   let lastElementArr = arrSize - 1;
   let index = Math.floor(arrSize / 2 - 1);
 
   while (index >= 0) {
-    heapify(itemsArr, arrSize, index);
+    heapify(itemsArr, arrSize, index, animationCb);
     index -= 1;
   }
 
   while (lastElementArr >= 0) {
+    visualizationDelay += 1;
+
+    setTimeout((currentArr) => {
+      animationCb(0, lastElementArr, currentArr);
+    }, speedValue * visualizationDelay, [...itemsArr]);
+
+    if (lastElementArr === 0) {
+      setTimeout(() => {
+        sortedCb();
+      }, speedValue * (visualizationDelay + 10));
+    }
+
     [itemsArr[0], itemsArr[lastElementArr]] = [itemsArr[lastElementArr], itemsArr[0]];
-    heapify(itemsArr, lastElementArr, 0);
+    heapify(itemsArr, lastElementArr, 0, animationCb);
     lastElementArr -= 1;
   }
-
-  sortedCb();
 };
 
 export default heapSort;

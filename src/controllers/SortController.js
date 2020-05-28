@@ -1,4 +1,5 @@
 import bubbleSort from '../algorithms/bubbleSort';
+import heapSort from '../algorithms/heapSort';
 
 class SortController {
   constructor() {
@@ -64,6 +65,7 @@ class SortController {
         bubbleSort(this.sizesArr, this.speed, this.update, this.finished);
         break;
       case 'heap':
+        heapSort(this.sizesArr, this.speed, this.update, this.finished);
         break;
       case 'merge':
         break;
@@ -74,7 +76,7 @@ class SortController {
     }
   }
 
-  update(currentIndex, comparedIndex, currentArr) {
+  update(currentIndex, comparedIndex, currentArr, parentIndex) {
     const itemsEl = document.querySelector('[data-js="list-container"]');
 
     itemsEl.innerHTML = '';
@@ -90,6 +92,10 @@ class SortController {
 
       if (comparedIndex === i) {
         divEl.style.background = 'var(--color-grey-secondary)';
+      }
+
+      if (parentIndex === i) {
+        divEl.style.background = 'var(--color-green-secondary)';
       }
 
       itemsEl.appendChild(divEl);
