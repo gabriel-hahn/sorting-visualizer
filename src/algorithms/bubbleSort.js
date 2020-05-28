@@ -39,16 +39,16 @@ const bubbleSort = (arr, speed = 200, animationCb, sortedCb) => {
 
         sorted = false;
 
-        setTimeout((currentArr) => {
-          animationCb(i, i + 1, currentArr);
-        }, speed * visualizationDelay, [...itemsArr]);
+        setTimeout((currentArr, iViz) => {
+          animationCb(iViz, iViz + 1, currentArr);
+        }, speed * visualizationDelay, [...itemsArr], i);
 
         continue;
       }
 
-      setTimeout((currentArr) => {
-        animationCb(i, i + 1, currentArr);
-      }, speed * visualizationDelay, [...itemsArr]);
+      setTimeout((currentArr, iViz) => {
+        animationCb(iViz, iViz + 1, currentArr);
+      }, speed * visualizationDelay, [...itemsArr], i);
     }
   }
 

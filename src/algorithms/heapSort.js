@@ -17,9 +17,9 @@ const heapify = (arr, length, i, animationCb) => {
   visualizationDelay += 1;
 
   if (left < length && right < length) {
-    setTimeout((currentArr) => {
-      animationCb(left, right, currentArr, largest);
-    }, speedValue * visualizationDelay, [...arr]);
+    setTimeout((currentArr, leftViz, rightViz, largestViz) => {
+      animationCb(leftViz, rightViz, currentArr, largestViz);
+    }, speedValue * visualizationDelay, [...arr], left, right, largest);
   }
 
   if (left < length && arr[left] > arr[largest]) {
