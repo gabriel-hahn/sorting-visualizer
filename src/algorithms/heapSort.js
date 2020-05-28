@@ -11,14 +11,16 @@ let speedValue = 200;
 
 const heapify = (arr, length, i, animationCb) => {
   let largest = i;
-  const left = 2 * i + 1;
+  const left = i * 2 + 1;
   const right = left + 1;
 
   visualizationDelay += 1;
 
-  setTimeout((currentArr) => {
-    animationCb(left, right, currentArr, largest);
-  }, speedValue * visualizationDelay, [...arr]);
+  if (left < length && right < length) {
+    setTimeout((currentArr) => {
+      animationCb(left, right, currentArr, largest);
+    }, speedValue * visualizationDelay, [...arr]);
+  }
 
   if (left < length && arr[left] > arr[largest]) {
     largest = left;

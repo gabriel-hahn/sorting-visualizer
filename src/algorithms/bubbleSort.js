@@ -2,6 +2,7 @@
  * Sort Definition:
  * Iterate through the list of items, comparing two elements and ordering it until there are no
  * elements changed in the last iteration.
+ *
  */
 const bubbleSort = (arr, speed = 200, animationCb, sortedCb) => {
   if (!arr || arr.length === 0) {
