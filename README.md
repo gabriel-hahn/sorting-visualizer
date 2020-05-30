@@ -13,7 +13,7 @@ This project simulate the sorting process of the following sort types:
 
 To run this project, you can install all dependencies and run ```npm start```, opening your browser at http://localhost:8080.
 
-Demo:
+## Demo:
 
 You can access this project [here](https://gabriel-hahn.github.io/sorting-visualizer/)
 
