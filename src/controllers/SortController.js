@@ -1,6 +1,7 @@
 import bubbleSort from '../algorithms/bubbleSort';
 import heapSort from '../algorithms/heapSort';
 import quickSort from '../algorithms/quickSort';
+import mergeSort from '../algorithms/mergeSort';
 
 class SortController {
   constructor() {
@@ -69,6 +70,7 @@ class SortController {
         heapSort(this.sizesArr, this.speed, this.update, this.finished);
         break;
       case 'merge':
+        mergeSort(this.sizesArr, this.speed, this.update, this.finished);
         break;
       case 'quick':
         quickSort(this.sizesArr, this.speed, this.update, this.finished);
@@ -78,7 +80,7 @@ class SortController {
     }
   }
 
-  update(currentIndex, comparedIndex, currentArr, parentIndex) {
+  update(currentIndex, comparedIndex, currentArr = this.sizesArr, parentIndex) {
     const itemsEl = document.querySelector('[data-js="list-container"]');
 
     itemsEl.innerHTML = '';
