@@ -2,6 +2,17 @@
 
 Sorting visualizer project developed using pure JavaScript :mag:
 
+This project simulate the sorting process of the following sort types:
+
+- Bubble Sort
+- Heap Sort
+- Quick Sort
+- Merge Sort
+
+## Getting Started
+
+To run this project, you can install all dependencies and run ```npm start```, opening your browser at http://localhost:8080.
+
 Demo:
 
 You can access this project [here](https://gabriel-hahn.github.io/sorting-visualizer/)
