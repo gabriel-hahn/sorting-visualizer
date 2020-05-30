@@ -2,6 +2,11 @@
   height: 100%;
 }
 
+.disabled {
+  pointer-events: none;
+  filter: grayscale(1);
+}
+
 .header {
   height: 8vh;
   min-height: 50px;

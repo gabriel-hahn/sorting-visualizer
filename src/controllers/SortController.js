@@ -60,6 +60,8 @@ class SortController {
   }
 
   handleSortVisualization() {
+    document.querySelector('[data-js="header"]').classList.add('disabled');
+
     const sortSelected = Array.from(this.sortTypesEl.children).find((item) => item.classList.contains('select'));
 
     switch (sortSelected.dataset.js) {
@@ -108,6 +110,7 @@ class SortController {
 
   finished() {
     const itemsEl = document.querySelector('[data-js="list-container"]');
+    document.querySelector('[data-js="header"]').classList.remove('disabled');
 
     Array.from(itemsEl.children).forEach((item) => {
       item.style.background = 'var(--color-green-primary)';
