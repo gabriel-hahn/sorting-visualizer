@@ -33,6 +33,10 @@
   width: 80px;
 }
 
+.header li input.reverse {
+  direction: rtl;
+}
+
 .header li:hover {
   background: var(--color-grey-dark);
 }
